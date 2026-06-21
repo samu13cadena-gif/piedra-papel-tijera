@@ -1,3 +1,6 @@
+# game_engine.py
+# Este archivo orquesta el flujo completo del juego: conecta todos los demás módulos.
+
 from constants import VICTORIAS_PARA_GANAR
 from ui import mostrar_bienvenida, mostrar_despedida
 from input_handler import pedir_jugada_usuario
@@ -8,9 +11,14 @@ from display import mostrar_resultado_ronda
 
 
 def iniciar_juego():
+    """
+    Controla el ciclo principal del juego.
+    Se repite (bucle while) hasta que el usuario o la CPU lleguen a 2 victorias.
+    """
     mostrar_bienvenida()
     marcador = crear_marcador()
 
+    # Bucle principal: continúa mientras nadie haya llegado a 2 victorias
     while marcador["victorias"] < VICTORIAS_PARA_GANAR and marcador["derrotas"] < VICTORIAS_PARA_GANAR:
         jugada_usuario = pedir_jugada_usuario()
         jugada_cpu = generar_jugada_cpu()
