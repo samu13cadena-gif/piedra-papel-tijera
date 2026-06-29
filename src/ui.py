@@ -24,9 +24,14 @@ def mostrar_menu():
 
 def mostrar_despedida(marcador):
     """
-    Muestra el mensaje final junto con el marcador.
+    Muestra el mensaje final con el marcador completo.
+    Usa el método .items() del diccionario para iterar las claves y valores,
+    excluyendo el historial (que es una lista, no un contador).
     """
     print("\n" + MENSAJE_DESPEDIDA)
-    print(f"Resultado final -> Victorias: {marcador['victorias']}, "
-          f"Derrotas: {marcador['derrotas']}, "
-          f"Empates: {marcador['empates']}")
+
+    # .items() devuelve pares (clave, valor) del diccionario
+    for clave, valor in marcador.items():
+        # Saltamos el historial porque no es un contador numérico
+        if clave != "historial":
+            print(f"  {clave.capitalize()}: {valor}")

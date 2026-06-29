@@ -1,8 +1,10 @@
 # constants.py
 # Este archivo guarda los valores fijos que usa todo el programa.
 
-# Opciones válidas que el usuario puede elegir
-OPCIONES_VALIDAS = ["piedra", "papel", "tijera"]
+# TUPLA: se usa tupla porque las opciones del juego nunca cambian.
+# Las tuplas son inmutables, lo que garantiza que nadie pueda
+# modificar accidentalmente las opciones válidas del juego.
+OPCIONES_VALIDAS = ("piedra", "papel", "tijera")
 
 # Número de victorias necesarias para ganar la partida (mejor de 3)
 VICTORIAS_PARA_GANAR = 2
